@@ -60,7 +60,7 @@
       <HintPath>..\..\..\_build\NuGet_Packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SnowMaker">
-      <HintPath>..\..\..\_build\NuGet_Packages\SnowMaker.1.0.0.46\lib\net40\SnowMaker.dll</HintPath>
+      <HintPath>..\_build\NuGet_Packages\SnowMaker.1.0.0.46\lib\net40\SnowMaker.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -171,9 +171,6 @@ COPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)Microsoft.*.dll" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)NLog.dll" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)System.*.dll" "$(ProjectDir)..\_build\"
-COPY "$(TargetDir)Octopus.*.dll" "$(ProjectDir)..\_build\"
-COPY "$(TargetDir)Newtonsoft.Json.dll" "$(ProjectDir)..\_build\"
-COPY "$(TargetDir)Sprache.dll" "$(ProjectDir)..\_build\"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
