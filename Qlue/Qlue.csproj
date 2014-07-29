@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4A4D5D3-C8EE-4EE3-B794-FFB5555E0C6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qlue</RootNamespace>
+    <AssemblyName>Qlue</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;xFULL_LOGGING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Qlue.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\Microsoft.Data.Edm.5.6.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\Microsoft.Data.OData.5.6.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\Microsoft.Data.Services.Client.5.6.1\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\_build\NuGet_Packages\WindowsAzure.ServiceBus.2.3.4.0\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\_build\NuGet_Packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\WindowsAzure.Storage.4.1.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SnowMaker">
+      <HintPath>..\..\..\_build\NuGet_Packages\SnowMaker.1.0.0.46\lib\net40\SnowMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\_build\NuGet_Packages\System.Spatial.5.6.1\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlobRepository.cs" />
+    <Compile Include="AzureChannelFactory.cs" />
+    <Compile Include="DataReporting\DataReportingException.cs" />
+    <Compile Include="DataReporting\DataReportingManager.cs" />
+    <Compile Include="DataReporting\IEventSink.cs" />
+    <Compile Include="IDeploymentVersionResolver.cs" />
+    <Compile Include="Exception\BusSendException.cs" />
+    <Compile Include="Exception\WarningException.cs" />
+    <Compile Include="Exception\ServiceException.cs" />
+    <Compile Include="Exception\ExceptionWrapper.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IChannelFactory.cs" />
+    <Compile Include="IConfigWithDatabase.cs" />
+    <Compile Include="IdGenerator\AzureIdGenerator.cs" />
+    <Compile Include="IdGenerator\IIdGenerator.cs" />
+    <Compile Include="InvokeContext.cs" />
+    <Compile Include="DataReporting\IEventReporting.cs" />
+    <Compile Include="DataReporting\NewRelicInsights.cs" />
+    <Compile Include="NotifyChannel.cs" />
+    <Compile Include="INotifyChannel.cs" />
+    <Compile Include="IRequestChannel.cs" />
+    <Compile Include="IServiceChannel.cs" />
+    <Compile Include="IConfig.cs" />
+    <Compile Include="ICloudCredentials.cs" />
+    <Compile Include="Pipeline\Component\Decompress.cs" />
+    <Compile Include="Pipeline\Component\CompressionConstants.cs" />
+    <Compile Include="Pipeline\Component\OverflowConstants.cs" />
+    <Compile Include="Pipeline\Component\OverflowPut.cs" />
+    <Compile Include="Pipeline\Component\Deserialize.cs" />
+    <Compile Include="Pipeline\PipelineExecutor.cs" />
+    <Compile Include="Processor\NonReentrantProcessor.cs" />
+    <Compile Include="Processor\RobustQueueProcessor.cs" />
+    <Compile Include="Transport\AzureBlobClient.cs" />
+    <Compile Include="Transport\AzureBusSender.cs" />
+    <Compile Include="Transport\AzureBusTransport.cs" />
+    <Compile Include="Transport\AzureBlockBlob.cs" />
+    <Compile Include="Transport\AzureBlobContainer.cs" />
+    <Compile Include="Transport\AzureBusTransportFactory.cs" />
+    <Compile Include="Transport\AzureStorageQueueMessage.cs" />
+    <Compile Include="Transport\AzureStorageQueue.cs" />
+    <Compile Include="Transport\IStorageQueueMessage.cs" />
+    <Compile Include="Transport\IStorageQueue.cs" />
+    <Compile Include="Transport\IStorageQueueClient.cs" />
+    <Compile Include="Transport\AzureStorageQueueClient.cs" />
+    <Compile Include="Transport\IBlobClient.cs" />
+    <Compile Include="Transport\IBusSender.cs" />
+    <Compile Include="Transport\IBusTransportFactory.cs" />
+    <Compile Include="Transport\IBusTransport.cs" />
+    <Compile Include="Transport\IBlobContainer.cs" />
+    <Compile Include="Transport\IBlockBlob.cs" />
+    <Compile Include="WaitingFor.cs" />
+    <Compile Include="Pipeline\Component\Compress.cs" />
+    <Compile Include="Pipeline\Component\OverflowGet.cs" />
+    <Compile Include="Pipeline\Component\Serialize.cs" />
+    <Compile Include="Pipeline\Component\IPipelineComponent.cs" />
+    <Compile Include="Pipeline\PipelineContext.cs" />
+    <Compile Include="Pipeline\PipelineDefaultFactory.cs" />
+    <Compile Include="Serializer\IMessageSerializer.cs" />
+    <Compile Include="Transport\BusReceiver.cs" />
+    <Compile Include="Pipeline\Component\MessageSender.cs" />
+    <Compile Include="CloudCredentials.cs" />
+    <Compile Include="Dispatch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestChannel.cs" />
+    <Compile Include="Serializer\MessageSerializer.cs" />
+    <Compile Include="ServiceChannel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Performance\Microsoft.ServiceBus.MessagingPerformanceCounters.man" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+      <SubType>Designer</SubType>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{48c9d76f-05dd-4012-a4e8-514dd0cb5afa}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>COPY "$(TargetPath)" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)Microsoft.*.dll" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)NLog.dll" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)System.*.dll" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)Octopus.*.dll" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)Newtonsoft.Json.dll" "$(ProjectDir)..\_build\"
+COPY "$(TargetDir)Sprache.dll" "$(ProjectDir)..\_build\"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
