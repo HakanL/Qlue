@@ -81,11 +81,9 @@
     <Compile Include="AzureChannelFactory.cs" />
     <Compile Include="DataReporting\DataReportingException.cs" />
     <Compile Include="DataReporting\DataReportingManager.cs" />
-    <Compile Include="DataReporting\IEventSink.cs" />
     <Compile Include="Exception\BusSendException.cs" />
     <Compile Include="Exception\ExceptionWrapper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="DataReporting\IEventReporting.cs" />
     <Compile Include="DataReporting\NewRelicInsights.cs" />
     <Compile Include="NotifyChannel.cs" />
     <Compile Include="Pipeline\Component\Decompress.cs" />
@@ -109,9 +107,7 @@
     <Compile Include="Pipeline\Component\Compress.cs" />
     <Compile Include="Pipeline\Component\OverflowGet.cs" />
     <Compile Include="Pipeline\Component\Serialize.cs" />
-    <Compile Include="Pipeline\Component\IPipelineComponent.cs" />
     <Compile Include="Pipeline\PipelineDefaultFactory.cs" />
-    <Compile Include="Serializer\IMessageSerializer.cs" />
     <Compile Include="Transport\BusReceiver.cs" />
     <Compile Include="Pipeline\Component\MessageSender.cs" />
     <Compile Include="Dispatch.cs" />

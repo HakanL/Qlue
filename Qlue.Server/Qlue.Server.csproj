@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdGenerator\AzureIdGenerator.cs" />
-    <Compile Include="IdGenerator\IIdGenerator.cs" />
     <Compile Include="IdGenerator\SnowMaker\BlobOptimisticDataStore.cs" />
     <Compile Include="IdGenerator\SnowMaker\DebugOnlyFileDataStore.cs" />
     <Compile Include="IdGenerator\SnowMaker\DictionaryExtensions.cs" />

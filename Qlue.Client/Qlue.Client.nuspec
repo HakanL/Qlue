@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Qlue</id>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <title>Qlue (Client) Messaging Framework for Azure</title>
     <authors>Hakan Lindestaf</authors>
     <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Fully asynchronous Messaging Framework used to abstract away the low-level workings of Azure ServiceBus topics.</description>
     <summary>Asynchronous Messaging Framework for Azure ServiceBus</summary>
-    <releaseNotes>1.1.2 - Split project into Core/Client/Server
+    <releaseNotes>1.1.3 - Split project into Core/Client/Server
 1.0.0 - Initial release</releaseNotes>
     <copyright>(C) Copyright 2013-2014 Hakan Lindestaf</copyright>
     <language>en-US</language>
