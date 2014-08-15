@@ -48,12 +48,14 @@
     <Compile Include="DataReporting\IEventReporting.cs" />
     <Compile Include="DataReporting\IEventSink.cs" />
     <Compile Include="IdGenerator\IIdGenerator.cs" />
+    <Compile Include="Logging\AsyncContext.cs" />
     <Compile Include="Logging\ILog.cs" />
     <Compile Include="Logging\ILogFactory.cs" />
     <Compile Include="Logging\ILogProvider.cs" />
     <Compile Include="Channel\INotifyChannel.cs" />
     <Compile Include="Channel\IRequestChannel.cs" />
     <Compile Include="Channel\IServiceChannel.cs" />
+    <Compile Include="Logging\LogContext.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Pipeline\IPipelineComponent.cs" />
     <Compile Include="Pipeline\PipelineContext.cs" />

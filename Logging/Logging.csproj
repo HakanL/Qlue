@@ -52,10 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncContext.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MappedDiagnosticsLogicalContext.cs" />
-    <Compile Include="LogContext.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MdlcLayoutRenderer.cs" />
     <Compile Include="NLogFactoryProvider.cs" />

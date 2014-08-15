@@ -92,7 +92,7 @@ namespace Qlue.Logging
             asyncData.PopStack(logger.Name);
         }
 
-        internal static string GetStackTrace(ILog logger)
+        public static string GetStackTrace(ILog logger)
         {
             AsyncData asyncData = AsyncData;
 
