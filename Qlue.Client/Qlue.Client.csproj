@@ -114,7 +114,6 @@
     <Compile Include="Serializer\IMessageSerializer.cs" />
     <Compile Include="Transport\BusReceiver.cs" />
     <Compile Include="Pipeline\Component\MessageSender.cs" />
-    <Compile Include="CloudCredentials.cs" />
     <Compile Include="Dispatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestChannel.cs" />

@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Channel\IChannelFactory.cs" />
     <Compile Include="Channel\InvokeContext.cs" />
+    <Compile Include="Config\CloudCredentials.cs" />
     <Compile Include="Config\ICloudCredentials.cs" />
     <Compile Include="Config\IConfig.cs" />
     <Compile Include="Config\IConfigWithDatabase.cs" />
