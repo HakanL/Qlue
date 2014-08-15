@@ -55,12 +55,8 @@
     <Compile Include="AsyncContext.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MappedDiagnosticsLogicalContext.cs" />
-    <Compile Include="ILog.cs" />
-    <Compile Include="ILogFactory.cs" />
-    <Compile Include="ILogProvider.cs" />
     <Compile Include="LogContext.cs" />
     <Compile Include="Log.cs" />
-    <Compile Include="LogLevel.cs" />
     <Compile Include="MdlcLayoutRenderer.cs" />
     <Compile Include="NLogFactoryProvider.cs" />
     <Compile Include="NLogProvider.cs" />
@@ -80,6 +76,12 @@
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Qlue.Core\Qlue.Core.csproj">
+      <Project>{6b0110fc-94b6-46c2-a85b-9ec1eb641df5}</Project>
+      <Name>Qlue.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

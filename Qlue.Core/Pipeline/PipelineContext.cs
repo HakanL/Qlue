@@ -84,7 +84,7 @@ namespace Qlue.Pipeline
             return context;
         }
 
-        internal static PipelineContext CreateFromResponse(string from, string relatesTo, string sessionId, object response)
+        public static PipelineContext CreateFromResponse(string from, string relatesTo, string sessionId, object response)
         {
             var context = new PipelineContext();
 
@@ -99,7 +99,7 @@ namespace Qlue.Pipeline
             return context;
         }
 
-        internal static PipelineContext CreateFromNotify(string from, string sessionId, object response, string version)
+        public static PipelineContext CreateFromNotify(string from, string sessionId, object response, string version)
         {
             var context = new PipelineContext();
 

@@ -2,6 +2,8 @@
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 
+// Uses SnowMaker from https://github.com/tathamoddie/SnowMaker
+
 namespace Qlue
 {
     public class AzureIdGenerator : IIdGenerator

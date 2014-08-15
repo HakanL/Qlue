@@ -42,9 +42,8 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\_build\NuGet_Packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
-    <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\_build\NuGet_Packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog">
+      <HintPath>..\_build\NuGet_Packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,9 +69,13 @@
       <Project>{48c9d76f-05dd-4012-a4e8-514dd0cb5afa}</Project>
       <Name>Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Qlue\Qlue.csproj">
+    <ProjectReference Include="..\Qlue.Core\Qlue.Core.csproj">
+      <Project>{6b0110fc-94b6-46c2-a85b-9ec1eb641df5}</Project>
+      <Name>Qlue.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Qlue.Client\Qlue.Client.csproj">
       <Project>{d4a4d5d3-c8ee-4ee3-b794-ffb5555e0c6f}</Project>
-      <Name>Qlue</Name>
+      <Name>Qlue.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

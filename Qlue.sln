@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{48C9D76F-05DD-4012-A4E8-514DD0CB5AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue", "Qlue\Qlue.csproj", "{D4A4D5D3-C8EE-4EE3-B794-FFB5555E0C6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Client", "Qlue.Client\Qlue.Client.csproj", "{D4A4D5D3-C8EE-4EE3-B794-FFB5555E0C6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Sample1", "Qlue.Sample1\Qlue.Sample1.csproj", "{18D97225-654D-4E86-AEBF-8DB00F31A2D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Tests", "Qlue.Tests\Qlue.Tests.csproj", "{1FAD19AA-FA79-4FA5-83CF-C527EF54A1DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Core", "Qlue.Core\Qlue.Core.csproj", "{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Server", "Qlue.Server\Qlue.Server.csproj", "{7A2AC07A-B761-43FC-B37D-EF3899E33846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{1FAD19AA-FA79-4FA5-83CF-C527EF54A1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FAD19AA-FA79-4FA5-83CF-C527EF54A1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FAD19AA-FA79-4FA5-83CF-C527EF54A1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
