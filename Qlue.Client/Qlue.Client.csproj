@@ -85,6 +85,15 @@
     <Compile Include="Exception\ExceptionWrapper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="DataReporting\NewRelicInsights.cs" />
+    <Compile Include="IdGenerator\AzureIdGenerator.cs" />
+    <Compile Include="IdGenerator\SnowMaker\BlobOptimisticDataStore.cs" />
+    <Compile Include="IdGenerator\SnowMaker\DebugOnlyFileDataStore.cs" />
+    <Compile Include="IdGenerator\SnowMaker\DictionaryExtensions.cs" />
+    <Compile Include="IdGenerator\SnowMaker\IOptimisticDataStore.cs" />
+    <Compile Include="IdGenerator\SnowMaker\IUniqueIdGenerator.cs" />
+    <Compile Include="IdGenerator\SnowMaker\ScopeState.cs" />
+    <Compile Include="IdGenerator\SnowMaker\UniqueIdGenerationException.cs" />
+    <Compile Include="IdGenerator\SnowMaker\UniqueIdGenerator.cs" />
     <Compile Include="NotifyChannel.cs" />
     <Compile Include="Pipeline\Component\Decompress.cs" />
     <Compile Include="Pipeline\Component\CompressionConstants.cs" />
