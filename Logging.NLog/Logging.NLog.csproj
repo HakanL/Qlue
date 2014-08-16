@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48C9D76F-05DD-4012-A4E8-514DD0CB5AFA}</ProjectGuid>
+    <ProjectGuid>{4AA8E907-475E-4BE4-A820-76042E518A71}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Qlue.Logging</RootNamespace>
-    <AssemblyName>Qlue.Logging</AssemblyName>
+    <RootNamespace>Logging.NLog</RootNamespace>
+    <AssemblyName>Logging.NLog</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\Qlue\</SolutionDir>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,11 +22,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\Qlue.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,53 +35,33 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AsyncContext.cs" />
-    <Compile Include="CustomLogFactoryProvider.cs" />
-    <Compile Include="CustomLogProvider.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="ILog.cs" />
-    <Compile Include="ILogFactory.cs" />
-    <Compile Include="ILogProvider.cs" />
-    <Compile Include="LogContext.cs" />
-    <Compile Include="LogLevel.cs" />
-    <Compile Include="MappedDiagnosticsLogicalContext.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="NullLogFactoryProvider.cs" />
-    <Compile Include="NullLogProvider.cs" />
+    <Compile Include="MdlcLayoutRenderer.cs" />
+    <Compile Include="NLogFactoryProvider.cs" />
+    <Compile Include="NLogProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Qlue.snk">
-      <Link>Qlue.snk</Link>
-    </None>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_build\NuGet_Packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
-      <Link>CustomDictionary.xml</Link>
-    </CodeAnalysisDictionary>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{48c9d76f-05dd-4012-a4e8-514dd0cb5afa}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY "$(TargetPath)" "$(ProjectDir)..\_build\"
-COPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\_build\"
-
-</PostBuildEvent>
+    <PostBuildEvent>COPY "$(TargetDir)NLog.dll" "$(ProjectDir)..\_build\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

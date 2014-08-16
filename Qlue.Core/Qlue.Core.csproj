@@ -48,15 +48,9 @@
     <Compile Include="DataReporting\IEventReporting.cs" />
     <Compile Include="DataReporting\IEventSink.cs" />
     <Compile Include="IdGenerator\IIdGenerator.cs" />
-    <Compile Include="Logging\AsyncContext.cs" />
-    <Compile Include="Logging\ILog.cs" />
-    <Compile Include="Logging\ILogFactory.cs" />
-    <Compile Include="Logging\ILogProvider.cs" />
     <Compile Include="Channel\INotifyChannel.cs" />
     <Compile Include="Channel\IRequestChannel.cs" />
     <Compile Include="Channel\IServiceChannel.cs" />
-    <Compile Include="Logging\LogContext.cs" />
-    <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Pipeline\IPipelineComponent.cs" />
     <Compile Include="Pipeline\PipelineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{48c9d76f-05dd-4012-a4e8-514dd0cb5afa}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

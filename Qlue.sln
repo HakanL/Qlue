@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Core", "Qlue.Core\Qlue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Server", "Qlue.Server\Qlue.Server.csproj", "{7A2AC07A-B761-43FC-B37D-EF3899E33846}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.NLog", "Logging.NLog\Logging.NLog.csproj", "{4AA8E907-475E-4BE4-A820-76042E518A71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A2AC07A-B761-43FC-B37D-EF3899E33846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA8E907-475E-4BE4-A820-76042E518A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA8E907-475E-4BE4-A820-76042E518A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA8E907-475E-4BE4-A820-76042E518A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA8E907-475E-4BE4-A820-76042E518A71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

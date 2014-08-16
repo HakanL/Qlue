@@ -74,6 +74,10 @@
     <Compile Include="LoggingTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logging.NLog\Logging.NLog.csproj">
+      <Project>{4aa8e907-475e-4be4-a820-76042e518a71}</Project>
+      <Name>Logging.NLog</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logging\Logging.csproj">
       <Project>{48c9d76f-05dd-4012-a4e8-514dd0cb5afa}</Project>
       <Name>Logging</Name>
