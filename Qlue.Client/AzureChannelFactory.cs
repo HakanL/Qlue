@@ -31,29 +31,30 @@ namespace Qlue
             this.sessionId = Guid.NewGuid().ToString("n", CultureInfo.InvariantCulture);
             this.busReceivers = new Dictionary<string, BusReceiver>();
 
-#if DEBUG
-            if (string.IsNullOrEmpty(this.queuePrefix))
+            if (System.Diagnostics.Debugger.IsAttached)
             {
-                try
+                if (string.IsNullOrEmpty(this.queuePrefix))
                 {
-                    if (versionResolver != null)
-                        this.version = versionResolver.GetLatestDeploymentVersion();
-                    else
+                    try
+                    {
+                        if (versionResolver != null)
+                            this.version = versionResolver.GetLatestDeploymentVersion();
+                        else
+                            this.version = string.Empty;
+                    }
+                    catch (Exception)
+                    {
                         this.version = string.Empty;
+                    }
                 }
-                catch (Exception)
+                else
                 {
+                    // Make sure we don't filter on version when running in debug with queue prefix
                     this.version = string.Empty;
                 }
             }
             else
-            {
-                // Make sure we don't filter on version when running in debug with queue prefix
-                this.version = string.Empty;
-            }
-#else
-            this.version = config.DeploymentVersion;
-#endif
+                this.version = config.DeploymentVersion;
 
             // Register the deployment version and environment with the log factory
             this.logFactory.SetGlobalProperty("Version", string.IsNullOrEmpty(this.version) ? "DEBUG" : this.version);
