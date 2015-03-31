@@ -89,7 +89,7 @@ namespace Qlue
                 ReceiveMode.ReceiveAndDelete);
         }
 
-        private static Pipeline.PipelineContext GetContextFromBrokeredMessage(BrokeredMessage brokMsg)
+        private Pipeline.PipelineContext GetContextFromBrokeredMessage(BrokeredMessage brokMsg)
         {
             var properties = new Dictionary<string, string>();
             foreach (var kvp in brokMsg.Properties)
@@ -105,17 +105,22 @@ namespace Qlue
                 this.log.Debug("Incoming message {1} from version {0}", version, brokMsg.MessageId);
 #endif
 
+            TimeSpan age = DateTime.UtcNow - brokMsg.EnqueuedTimeUtc;
+            this.log.Trace("Incoming message id {0} enqueued at {1:s}, age {2:N1} ms",
+                brokMsg.MessageId, brokMsg.EnqueuedTimeUtc, age.TotalMilliseconds);
+
             var context = Pipeline.PipelineContext.CreateFromInboundMessage(
-                brokMsg.GetBody<Stream>(),
-                brokMsg.ContentType,
-                brokMsg.MessageId,
-                brokMsg.ReplyTo,
-                brokMsg.CorrelationId,
-                brokMsg.SessionId,
-                brokMsg,
-                customSessionId,
-                version,
-                properties);
+                payload: brokMsg.GetBody<Stream>(),
+                contentType: brokMsg.ContentType,
+                messageId: brokMsg.MessageId,
+                from: brokMsg.ReplyTo,
+                relatesTo: brokMsg.CorrelationId,
+                sessionId: brokMsg.SessionId,
+                busObject: brokMsg,
+                customSessionId: customSessionId,
+                version: version,
+                enqueuedTimeUtc: brokMsg.EnqueuedTimeUtc,
+                properties: properties);
 
             return context;
         }

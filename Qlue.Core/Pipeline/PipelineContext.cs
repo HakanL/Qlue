@@ -41,6 +41,8 @@ namespace Qlue.Pipeline
 
         public string Version { get; private set; }
 
+        public DateTime EnqueuedTimeUtc { get; private set; }
+
         private PipelineContext()
         {
             this.Properties = new Dictionary<string, string>();
@@ -51,8 +53,18 @@ namespace Qlue.Pipeline
             this.Properties = properties;
         }
 
-        public static PipelineContext CreateFromInboundMessage(Stream payload, string contentType, string messageId, string from,
-            string relatesTo, string sessionId, object busObject, string customSessionId, string version, Dictionary<string, string> properties)
+        public static PipelineContext CreateFromInboundMessage(
+            Stream payload,
+            string contentType,
+            string messageId,
+            string from,
+            string relatesTo,
+            string sessionId,
+            object busObject,
+            string customSessionId,
+            string version,
+            DateTime enqueuedTimeUtc,
+            Dictionary<string, string> properties)
         {
             var context = new PipelineContext(properties);
 
@@ -65,6 +77,7 @@ namespace Qlue.Pipeline
             context.BusObject = busObject;
             context.CustomSessionId = customSessionId;
             context.Version = version;
+            context.EnqueuedTimeUtc = enqueuedTimeUtc;
 
             return context;
         }

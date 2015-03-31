@@ -2,19 +2,20 @@
 <package >
   <metadata>
     <id>Qlue</id>
-    <version>1.1.8</version>
+    <version>1.1.9</version>
     <title>Qlue (Client) Messaging Framework for Azure</title>
     <authors>Hakan Lindestaf</authors>
     <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Fully asynchronous Messaging Framework used to abstract away the low-level workings of Azure ServiceBus topics.</description>
     <summary>Asynchronous Messaging Framework for Azure ServiceBus</summary>
-    <releaseNotes>1.1.8 - Updated NuGet dependencies (Azure SDK 2.5)
+    <releaseNotes>1.1.9 - Updated NuGet dependencies and added some additional logging
+1.1.8 - Updated NuGet dependencies (Azure SDK 2.5)
 1.1.7 - Updated all NuGet dependencies
 1.1.6 - Fixed issue with #if DEBUG
 1.1.5 - Split project into Core/Client/Logging
 1.0.0 - Initial release</releaseNotes>
-    <copyright>(C) Copyright 2013-2014 Hakan Lindestaf</copyright>
+    <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>
     <language>en-US</language>
     <tags>azure servicebus topic messaging qlue</tags>
     <dependencies>

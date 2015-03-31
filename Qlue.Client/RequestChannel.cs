@@ -216,6 +216,8 @@ namespace Qlue
                     // Send
                     await this.outboundPipeline.Execute(context).ConfigureAwait(false);
 
+                    logger.Trace("Message {0} sent, waiting for reply (timeout {1:N0} s)", context.MessageId, timeout.TotalSeconds);
+
                     // Wait for reply
                     await waitingForObject.Task;
 

@@ -416,6 +416,7 @@ namespace Qlue.Tests.Plumbing
                 null,
                 null,
                 null,
+                DateTime.UtcNow,
                 queueObject.Properties
                 );
         }
