@@ -15,6 +15,7 @@
     <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>
     <language>en-US</language>
     <tags>azure servicebus topic messaging qlue</tags>
+    <licenseUrl>https://github.com/HakanL/Qlue/blob/master/LICENSE</licenseUrl>
     <dependencies>
       <group>
         <dependency id="Qlue.Logging" />

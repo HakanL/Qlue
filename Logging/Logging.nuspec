@@ -12,6 +12,7 @@
     <releaseNotes>1.0.0 - Initial release</releaseNotes>
     <copyright>(C) Copyright 2013-2014 Hakan Lindestaf</copyright>
     <language>en-US</language>
+    <licenseUrl>https://github.com/HakanL/Qlue/blob/master/LICENSE</licenseUrl>
     <tags>qlue logging</tags>
   </metadata>
 </package>
