@@ -26,6 +26,7 @@ namespace Qlue
         private string subscriptionNameToDelete;
         private ICloudCredentials cloudCredentials;
         private string topicSuffix;
+        private AzureBusSettings settings;
 
         private AzureBusTransport(
             ILog log,
@@ -34,10 +35,12 @@ namespace Qlue
             string filterVersion,
             string subscriptionName,
             bool deleteSubscriptionOnDispose,
-            string subscriptionFilter)
+            string subscriptionFilter,
+            AzureBusSettings settings)
         {
             this.log = log;
             this.cloudCredentials = cloudCredentials;
+            this.settings = settings;
 
             if (!string.IsNullOrEmpty(filterVersion))
             {
@@ -61,13 +64,23 @@ namespace Qlue
                 var topicDescription = new TopicDescription(this.listenTopic)
                 {
                     SupportOrdering = false,
-                    RequiresDuplicateDetection = true,
-                    DuplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(10),
                     EnableBatchedOperations = false,
-                    AutoDeleteOnIdle = TimeSpan.FromDays(3),
-                    EnableExpress = true,
+                    AutoDeleteOnIdle = settings.AutoDeleteOnIdle,
                     EnablePartitioning = true
                 };
+
+                if (settings.Express)
+                {
+                    topicDescription.EnableExpress = true;
+                    topicDescription.RequiresDuplicateDetection = false;
+                }
+                else
+                {
+                    topicDescription.EnableExpress = false;
+                    topicDescription.RequiresDuplicateDetection = true;
+                    topicDescription.DuplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(10);
+                }
+
                 this.namespaceManager.CreateTopic(topicDescription);
             }
 
@@ -144,7 +157,8 @@ namespace Qlue
             ICloudCredentials cloudCredentials,
             string listenTopic,
             string filterVersion,
-            string subscriptionName)
+            string subscriptionName,
+            AzureBusSettings settings)
         {
             var busTransport = new AzureBusTransport(
                 log,
@@ -153,7 +167,8 @@ namespace Qlue
                 filterVersion,
                 subscriptionName,
                 false,
-                "sys.Label = 'Request'");
+                "sys.Label = 'Request'",
+                settings);
 
             return busTransport;
         }
@@ -163,7 +178,8 @@ namespace Qlue
             ICloudCredentials cloudCredentials,
             string listenTopic,
             string responseSessionId,
-            string filterVersion)
+            string filterVersion,
+            AzureBusSettings settings)
         {
             string subscriptionName = string.Format(CultureInfo.InvariantCulture, "client-{0}", responseSessionId);
 
@@ -174,7 +190,8 @@ namespace Qlue
                 filterVersion,
                 subscriptionName,
                 true,
-                string.Format(CultureInfo.InvariantCulture, "sys.Label = 'Response-{0}'", responseSessionId));
+                string.Format(CultureInfo.InvariantCulture, "sys.Label = 'Response-{0}'", responseSessionId),
+                settings);
 
             return busTransport;
         }
@@ -184,7 +201,8 @@ namespace Qlue
             ICloudCredentials cloudCredentials,
             string listenTopic,
             string filterVersion,
-            string subscriptionName)
+            string subscriptionName,
+            AzureBusSettings settings)
         {
             bool deleteSubscriptionOnDispose = false;
             if (subscriptionName == null)
@@ -201,7 +219,8 @@ namespace Qlue
                 filterVersion,
                 subscriptionName,
                 deleteSubscriptionOnDispose,
-                "sys.Label = 'Notify'");
+                "sys.Label = 'Notify'",
+                settings);
 
             return busTransport;
         }
@@ -270,30 +289,35 @@ namespace Qlue
 
         public IBusSender CreateBusSender(string destinationTopic, string sessionId)
         {
-#if !TRANSPORT_USENETMESSAGING
-            var settings = new MessagingFactorySettings
+            MessagingFactorySettings factorySettings;
+
+            if (this.settings.UseAmqp)
             {
-                AmqpTransportSettings = new Microsoft.ServiceBus.Messaging.Amqp.AmqpTransportSettings
+                factorySettings = new MessagingFactorySettings
                 {
-                    BatchFlushInterval = TimeSpan.Zero
-                },
-                TokenProvider = GetTokenProvider(this.cloudCredentials),
-                TransportType = TransportType.Amqp
-            };
-#else
-            var settings = new MessagingFactorySettings
+                    AmqpTransportSettings = new Microsoft.ServiceBus.Messaging.Amqp.AmqpTransportSettings
+                    {
+                        BatchFlushInterval = TimeSpan.Zero
+                    },
+                    TokenProvider = GetTokenProvider(this.cloudCredentials),
+                    TransportType = TransportType.Amqp
+                };
+            }
+            else
             {
-                NetMessagingTransportSettings = new Microsoft.ServiceBus.Messaging.NetMessagingTransportSettings
+                factorySettings = new MessagingFactorySettings
                 {
-                    BatchFlushInterval = TimeSpan.Zero
-                },
-                TokenProvider = GetTokenProvider(this.cloudCredentials),
-                TransportType = TransportType.NetMessaging
-            };
-#endif
+                    NetMessagingTransportSettings = new Microsoft.ServiceBus.Messaging.NetMessagingTransportSettings
+                    {
+                        BatchFlushInterval = TimeSpan.Zero
+                    },
+                    TokenProvider = GetTokenProvider(this.cloudCredentials),
+                    TransportType = TransportType.NetMessaging
+                };
+            }
 
             var sbUri = ServiceBusEnvironment.CreateServiceUri("sb", this.cloudCredentials.ServiceNamespace, "");
-            var factory = MessagingFactory.Create(sbUri, settings);
+            var factory = MessagingFactory.Create(sbUri, factorySettings);
 
             var topicClient = factory.CreateTopicClient(destinationTopic);
 

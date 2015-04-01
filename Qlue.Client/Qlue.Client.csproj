@@ -106,6 +106,7 @@
     <Compile Include="Processor\RobustQueueProcessor.cs" />
     <Compile Include="Transport\AzureBlobClient.cs" />
     <Compile Include="Transport\AzureBusSender.cs" />
+    <Compile Include="Transport\AzureBusSettings.cs" />
     <Compile Include="Transport\AzureBusTransport.cs" />
     <Compile Include="Transport\AzureBlockBlob.cs" />
     <Compile Include="Transport\AzureBlobContainer.cs" />
@@ -152,7 +153,6 @@
     <PostBuildEvent>COPY "$(TargetPath)" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)Microsoft.*.dll" "$(ProjectDir)..\_build\"
-COPY "$(TargetDir)NLog.dll" "$(ProjectDir)..\_build\"
 COPY "$(TargetDir)System.*.dll" "$(ProjectDir)..\_build\"
 </PostBuildEvent>
   </PropertyGroup>
