@@ -64,7 +64,9 @@ namespace Qlue
                     RequiresDuplicateDetection = true,
                     DuplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(10),
                     EnableBatchedOperations = false,
-                    AutoDeleteOnIdle = TimeSpan.FromDays(3)
+                    AutoDeleteOnIdle = TimeSpan.FromDays(3),
+                    EnableExpress = true,
+                    EnablePartitioning = true
                 };
                 this.namespaceManager.CreateTopic(topicDescription);
             }
@@ -76,7 +78,8 @@ namespace Qlue
                     EnableBatchedOperations = false,
                     EnableDeadLetteringOnFilterEvaluationExceptions = true,
                     DefaultMessageTimeToLive = TimeSpan.FromDays(7),
-                    AutoDeleteOnIdle = TimeSpan.FromDays(3)
+                    AutoDeleteOnIdle = TimeSpan.FromDays(3),
+                    RequiresSession = false
                 };
 
                 this.namespaceManager.CreateSubscription(subscriptionDescription, new SqlFilter(subscriptionFilter));
