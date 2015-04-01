@@ -248,7 +248,7 @@ namespace Qlue
                     AsyncContext.StoreKeyValue("ExceptionCustomSessionId", context.CustomSessionId);
 
                     if (ex is TaskCanceledException)
-                        throw new TimeoutException();
+                        throw new TimeoutException(string.Format("Timed out waiting for message id {0}", context.MessageId));
 
                     throw;
                 }
