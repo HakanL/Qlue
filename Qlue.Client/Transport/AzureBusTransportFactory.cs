@@ -23,7 +23,8 @@ namespace Qlue.Transport
                 {
                     AutoDeleteOnIdle = TimeSpan.FromDays(2),
                     Express = true,
-                    UseAmqp = false
+                    UseAmqp = false,
+                    Partitioning = false
                 };
             else
                 this.settings = settings;

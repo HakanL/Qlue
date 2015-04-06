@@ -66,7 +66,8 @@ namespace Qlue
                     SupportOrdering = false,
                     EnableBatchedOperations = false,
                     AutoDeleteOnIdle = settings.AutoDeleteOnIdle,
-                    EnablePartitioning = true
+                    // Limit to a total of 100 topics with partitioning enabled
+                    EnablePartitioning = settings.Partitioning
                 };
 
                 if (settings.Express)

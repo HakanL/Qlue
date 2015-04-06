@@ -13,5 +13,7 @@ namespace Qlue.Transport
         public TimeSpan AutoDeleteOnIdle { get; set; }
 
         public bool UseAmqp { get; set; }
+
+        public bool Partitioning { get; set; }
     }
 }
