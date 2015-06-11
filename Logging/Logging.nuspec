@@ -2,15 +2,16 @@
 <package >
   <metadata>
     <id>Qlue.Logging</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Qlue (Logging) Logging Framework</title>
     <authors>Hakan Lindestaf</authors>
     <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Logging Framework for service oriented systems.</description>
     <summary>Logging Framework</summary>
-    <releaseNotes>1.0.0 - Initial release</releaseNotes>
-    <copyright>(C) Copyright 2013-2014 Hakan Lindestaf</copyright>
+    <releaseNotes>1.0.1 - Added method to LogContext to clear async context (used to reset logging stack after Task.Run)
+1.0.0 - Initial release</releaseNotes>
+    <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>
     <language>en-US</language>
     <licenseUrl>https://github.com/HakanL/Qlue/blob/master/LICENSE</licenseUrl>
     <tags>qlue logging</tags>

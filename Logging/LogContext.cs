@@ -11,11 +11,14 @@ namespace Qlue.Logging
         private Stopwatch stopWatch;
         private IDisposable ndc;
 
-        public LogContext(ILog logger, [CallerMemberName] string context = "")
+        public LogContext(ILog logger, [CallerMemberName] string context = "", bool clearAsyncContext = false)
         {
             this.logger = logger;
 
-            this.ndc = AsyncContext.Push(this.logger, context);
+            if (clearAsyncContext)
+                AsyncContext.ClearAsyncData();
+
+            this.ndc = AsyncContext.Push(this.logger.Name, context);
             this.stopWatch = Stopwatch.StartNew();
 
             // Log empty line to indicate start of function
@@ -31,6 +34,11 @@ namespace Qlue.Logging
                 this.stopWatch.Elapsed.TotalMilliseconds);
 
             this.ndc.Dispose();
+        }
+
+        public static void ClearAsyncContext()
+        {
+            AsyncContext.ClearAsyncData();
         }
     }
 }

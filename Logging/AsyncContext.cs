@@ -43,11 +43,11 @@ namespace Qlue.Logging
             }
         }
 
-        internal static IDisposable Push(ILog logger, string context)
+        internal static IDisposable Push(string loggerName, string context)
         {
             AsyncData asyncData = AsyncData;
-            asyncData.PushStack(logger.Name, context);
-            return new PopWhenDisposed(logger);
+            asyncData.PushStack(loggerName, context);
+            return new PopWhenDisposed(loggerName);
         }
 
         internal static Guid DataSetId
@@ -63,6 +63,11 @@ namespace Qlue.Logging
 
                 return dataSetId.Value;
             }
+        }
+
+        internal static void ClearAsyncData()
+        {
+            CallContext.FreeNamedDataSlot(NameSharedData);
         }
 
         internal static AsyncData AsyncData
@@ -85,11 +90,11 @@ namespace Qlue.Logging
             }
         }
 
-        private static void Pop(ILog logger)
+        private static void Pop(string loggerName)
         {
             AsyncData asyncData = AsyncData;
 
-            asyncData.PopStack(logger.Name);
+            asyncData.PopStack(loggerName);
         }
 
         public static string GetStackTrace(ILog logger)
@@ -102,11 +107,11 @@ namespace Qlue.Logging
         private sealed class PopWhenDisposed : IDisposable
         {
             private bool disposed;
-            private ILog logger;
+            private string loggerName;
 
-            public PopWhenDisposed(ILog logger)
+            public PopWhenDisposed(string loggerName)
             {
-                this.logger = logger;
+                this.loggerName = loggerName;
             }
 
             public void Dispose()
@@ -114,7 +119,7 @@ namespace Qlue.Logging
                 if (this.disposed)
                     return;
 
-                Pop(this.logger);
+                Pop(this.loggerName);
 
                 this.disposed = true;
             }

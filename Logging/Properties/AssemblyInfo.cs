@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Haukcode")]
 [assembly: AssemblyProduct("Haukcode Qlue")]
-[assembly: AssemblyCopyright("Copyright © 2013-2014 Haukcode")]
+[assembly: AssemblyCopyright("Copyright © 2013-2015 Haukcode")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: CLSCompliant(true)]
