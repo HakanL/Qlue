@@ -2,14 +2,15 @@
 <package >
   <metadata>
     <id>Qlue.Logging.NLog</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>Qlue (Logging for NLog) Logging Framework</title>
     <authors>Hakan Lindestaf</authors>
     <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Logging Framework for service oriented systems.</description>
     <summary>Logging Framework</summary>
-    <releaseNotes>1.0.2 - Updated NuGet dependencies to 4.0
+    <releaseNotes>1.0.3 - Supports reload of config with search/replace
+1.0.2 - Updated NuGet dependencies to 4.0
 1.0.1 - Updated NuGet dependencies
 1.0.0 - Initial release</releaseNotes>
     <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>

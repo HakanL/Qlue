@@ -23,13 +23,30 @@ namespace Qlue.Sample1
 
         public static void Main(string[] args)
         {
+            container = new UnityContainer();
+
             var app = new Program();
-            app.Test();
+            app.Init();
+
+            //            app.Test();
+            app.Test2();
+            app.Test2();
+            Console.ReadLine();
+            app.Test2();
+        }
+
+        private void Init()
+        {
+            container.RegisterType<ILogFactory, NLogFactoryProvider>(new ContainerControlledLifetimeManager());
+
+            this.logConsumer = container.Resolve<ILogFactory>().GetLogger("Consumer");
+            this.logService = container.Resolve<ILogFactory>().GetLogger("Service");
+            this.logNotify = container.Resolve<ILogFactory>().GetLogger("Notify");
         }
 
         private void Test2()
         {
-            using (this.logService.Context())
+            using (new LogContext(this.logConsumer))
             {
                 this.logService.Info("Test2 is executing");
             }
@@ -37,17 +54,11 @@ namespace Qlue.Sample1
 
         private void Test()
         {
-            container = new UnityContainer();
             container.RegisterInstance<ICloudCredentials>(Shared.AzureCredentials.GetCloudCredentials());
             container.RegisterType<IBlobClient, AzureBlobClient>(
                 new ContainerControlledLifetimeManager(),
                 new InjectionConstructor(typeof(ICloudCredentials), "Qlue-Overflow"));
-            container.RegisterType<ILogFactory, NLogFactoryProvider>(new ContainerControlledLifetimeManager());
             container.RegisterType<IBusTransportFactory, AzureBusTransportFactory>(new ContainerControlledLifetimeManager());
-
-            this.logConsumer = container.Resolve<ILogFactory>().GetLogger("Consumer");
-            this.logService = container.Resolve<ILogFactory>().GetLogger("Service");
-            this.logNotify = container.Resolve<ILogFactory>().GetLogger("Notify");
 
             logConsumer.Info("Starting Qlue.Sample/Service on console thread {0}", System.Threading.Thread.CurrentThread.ManagedThreadId);
             logService.Info("Starting Qlue.Sample/Consumer on console thread {0}", System.Threading.Thread.CurrentThread.ManagedThreadId);

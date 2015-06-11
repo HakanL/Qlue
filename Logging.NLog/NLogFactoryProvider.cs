@@ -30,6 +30,16 @@ namespace Qlue.Logging
 
             NLog.GlobalDiagnosticsContext.Set("TempPath", Path.GetTempPath());
 
+            LogManager.ConfigurationReloaded += LogManager_ConfigurationReloaded;
+
+            UpdateConfiguration();
+
+            // Set default for LogPath
+            SetLogPath(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "_Logs"));
+        }
+
+        private void UpdateConfiguration()
+        {
             if (LogManager.Configuration != null && LogManager.Configuration.AllTargets != null)
             {
                 foreach (var target in LogManager.Configuration.AllTargets)
@@ -49,9 +59,12 @@ namespace Qlue.Logging
                             layoutTarget.Layout = new NLog.Layouts.SimpleLayout("${time} ${pad:padding=3:inner=${event-context:item=threadid}}>${pad:padding=-5:inner=${level:uppercase=true}} ${logger}:${event-context:item=ndc} ${message}${onexception:inner=${newline}${exception:format=tostring}}");
                 }
             }
+        }
 
-            // Set default for LogPath
-            SetLogPath(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "_Logs"));
+        private void LogManager_ConfigurationReloaded(object sender, NLog.Config.LoggingConfigurationReloadedEventArgs e)
+        {
+            if (e.Succeeded)
+                UpdateConfiguration();
         }
 
         public ILog GetLogger(string name)
