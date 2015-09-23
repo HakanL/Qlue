@@ -269,12 +269,12 @@ namespace Qlue
 
         public IAsyncResult BeginReceive(AsyncCallback callback, object state)
         {
-            return this.listenClient.BeginReceive(callback, state);
+            return this.listenClient.ReceiveAsync().AsApm(callback, state);
         }
 
         public Pipeline.PipelineContext EndReceive(IAsyncResult result)
         {
-            var brokMsg = this.listenClient.EndReceive(result);
+            var brokMsg = ((Task<BrokeredMessage>)result).Result;
             if (brokMsg == null)
                 return null;
 

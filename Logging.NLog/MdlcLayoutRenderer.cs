@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Text;
+using NLog;
 using NLog.Config;
+using NLog.LayoutRenderers;
 
-namespace NLog.LayoutRenderers
+namespace Qlue.Logging
 {
     [LayoutRenderer("mdlc")]
     public class MdlcLayoutRenderer : LayoutRenderer
@@ -13,7 +15,7 @@ namespace NLog.LayoutRenderers
 
         protected override void Append(StringBuilder builder, LogEventInfo logEvent)
         {
-            string msg = MappedDiagnosticsLogicalContext.Get(this.Item);
+            string msg = Qlue.Logging.MappedDiagnosticsLogicalContext.Get(this.Item);
             builder.Append(msg);
         }
     }

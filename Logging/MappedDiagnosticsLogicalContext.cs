@@ -3,11 +3,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 
-namespace NLog
+namespace Qlue.Logging
 {
+    // NLog includes this now, but it doesn't have the All method so we still need this
+
     public static class MappedDiagnosticsLogicalContext
     {
-        private const string LogicalContextDictKey = "NLog.MappedDiagnosticsLogicalContext";
+        private const string LogicalContextDictKey = "Qlue.Logging.MappedDiagnosticsLogicalContext";
 
         private static IDictionary<string, string> LogicalContextDict
         {

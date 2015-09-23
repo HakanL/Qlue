@@ -26,7 +26,7 @@ namespace Qlue.Logging
         public NLogFactoryProvider()
         {
             // Register our mdlc layout renderer
-            NLog.Config.ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("mdlc", typeof(MdlcLayoutRenderer));
+            NLog.Config.ConfigurationItemFactory.Default.LayoutRenderers.RegisterDefinition("mdlc", typeof(Qlue.Logging.MdlcLayoutRenderer));
 
             NLog.GlobalDiagnosticsContext.Set("TempPath", Path.GetTempPath());
 

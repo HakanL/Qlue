@@ -51,7 +51,7 @@ namespace Qlue.Logging
             logEvent.Properties.Add("threadid", System.Threading.Thread.CurrentThread.ManagedThreadId.ToString(CultureInfo.InvariantCulture));
 
             // Copy properties
-            foreach (var kvp in NLog.MappedDiagnosticsLogicalContext.All)
+            foreach (var kvp in Qlue.Logging.MappedDiagnosticsLogicalContext.All)
                 logEvent.Properties.Add(kvp.Key, kvp.Value);
 
             return logEvent;
@@ -59,7 +59,7 @@ namespace Qlue.Logging
 
         public void SetContextProperty(string key, string value)
         {
-            NLog.MappedDiagnosticsLogicalContext.Set(key, value);
+            Qlue.Logging.MappedDiagnosticsLogicalContext.Set(key, value);
         }
 
         public void LogNormal(string ndc, LogLevel logLevel, string message, params object[] args)
