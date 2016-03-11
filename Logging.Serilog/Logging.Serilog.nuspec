@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Qlue.Logging.Serilog</id>
+    <version>1.0.0</version>
+    <title>Qlue (Logging for Serilog) Logging Framework</title>
+    <authors>Michael Kaltner</authors>
+    <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Logging Framework for service oriented systems.</description>
+    <summary>Logging Framework</summary>
+    <releaseNotes>1.0.0 - Initial release</releaseNotes>
+    <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>
+    <language>en-US</language>
+    <tags>qlue logging nlog</tags>
+    <licenseUrl>https://github.com/HakanL/Qlue/blob/master/LICENSE</licenseUrl>
+    <dependencies>
+      <group>
+        <dependency id="Qlue.Logging" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
