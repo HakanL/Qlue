@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{48C9D76F-05DD-4012-A4E8-514DD0CB5AFA}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qlue.Core", "Qlue.Core\Qlue.Core.csproj", "{6B0110FC-94B6-46C2-A85B-9EC1EB641DF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.NLog", "Logging.NLog\Logging.NLog.csproj", "{4AA8E907-475E-4BE4-A820-76042E518A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Serilog", "Logging.Serilog\Logging.Serilog.csproj", "{F3DAC004-BA6E-4D49-A20D-3F174AF34DB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{4AA8E907-475E-4BE4-A820-76042E518A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AA8E907-475E-4BE4-A820-76042E518A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AA8E907-475E-4BE4-A820-76042E518A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DAC004-BA6E-4D49-A20D-3F174AF34DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DAC004-BA6E-4D49-A20D-3F174AF34DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DAC004-BA6E-4D49-A20D-3F174AF34DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DAC004-BA6E-4D49-A20D-3F174AF34DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
