@@ -2,14 +2,15 @@
 <package >
   <metadata>
     <id>Qlue</id>
-    <version>1.1.16</version>
+    <version>1.1.17</version>
     <title>Qlue (Client) Messaging Framework for Azure</title>
     <authors>Hakan Lindestaf</authors>
     <projectUrl>https://github.com/HakanL/Qlue</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Fully asynchronous Messaging Framework used to abstract away the low-level workings of Azure ServiceBus topics.</description>
     <summary>Asynchronous Messaging Framework for Azure ServiceBus</summary>
-    <releaseNotes>1.1.16 - Updated NuGet dependencies
+    <releaseNotes>1.1.17 - Updated NuGet dependencies
+1.1.16 - Updated NuGet dependencies
 1.1.15 - Updated Azure NuGet packages
 1.1.14 - Exposed partitioning setting and default to false
 1.1.13 - Fixed Express settings
@@ -22,7 +23,7 @@
 1.1.6 - Fixed issue with #if DEBUG
 1.1.5 - Split project into Core/Client/Logging
 1.0.0 - Initial release</releaseNotes>
-    <copyright>(C) Copyright 2013-2015 Hakan Lindestaf</copyright>
+    <copyright>(C) Copyright 2013-2016 Hakan Lindestaf</copyright>
     <language>en-US</language>
     <tags>azure servicebus topic messaging qlue</tags>
     <licenseUrl>https://github.com/HakanL/Qlue/blob/master/LICENSE</licenseUrl>
